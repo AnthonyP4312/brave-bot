@@ -22,7 +22,7 @@ module.exports = (bot) => {
 
     if (message.startsWith('$quieter')) {
       let sound = message.replace('$quieter', '').trim()
-      exec(`sox ${sound}.ogg ${sound}.ogg gain -n 3`, (err, stdout, stderr) => {
+      exec(`sox /home/pi/node/brave-bot/soundFiles/${sound}.ogg /home/pi/node/brave-bot/soundFiles/${sound}.ogg gain -n 3`, (err, stdout, stderr) => {
         if (err) {
           bot.sendMessage({
             to: userID,
