@@ -1,38 +1,32 @@
-
+const cmd = require('node-cmd')
 const exec = require('child_process').execSync
 
 module.exports = (bot) => {
   bot.on('message', async (user, userID, channelID, message, event) => {
     if (message.startsWith('$louder')) {
       let sound = message.replace('$louder', '').trim()
-      exec(`sox ${sound}.ogg ${sound}.ogg gain -n -3`, (err, stdout, stderr) => {
-        if (err) {
-          bot.sendMessage({
-            to: userID,
-            message: 'the shits fucked: ' + err
+      cmd.get(`sox -v 1.4 /home/pi/node/brave-bot/soundFiles/${sound}.ogg /home/pi/node/brave-bot/soundFiles/${sound}2.ogg`, () => {
+        cmd.get(`rm -f /home/pi/node/brave-bot/soundFiles/${sound}.ogg`, () => {
+          cmd.get(`mv /home/pi/node/brave-bot/soundFiles/${sound}2.ogg /home/pi/node/brave-bot/soundFiles/${sound}.ogg`, () => {
+            bot.sendMessage({
+              to: userID,
+              message: `${sound} done`
+            })
           })
-        }
-
-        bot.sendMessage({
-          to: userID,
-          message: 'its louder'
         })
       })
     }
 
     if (message.startsWith('$quieter')) {
       let sound = message.replace('$quieter', '').trim()
-      exec(`sox /home/pi/node/brave-bot/soundFiles/${sound}.ogg /home/pi/node/brave-bot/soundFiles/${sound}.ogg gain -n 3`, (err, stdout, stderr) => {
-        if (err) {
-          bot.sendMessage({
-            to: userID,
-            message: 'the shits fucked: ' + err
+      cmd.get(`sox -v 0.6 /home/pi/node/brave-bot/soundFiles/${sound}.ogg /home/pi/node/brave-bot/soundFiles/${sound}2.ogg`, () => {
+        cmd.get(`rm -f /home/pi/node/brave-bot/soundFiles/${sound}.ogg`, () => {
+          cmd.get(`mv /home/pi/node/brave-bot/soundFiles/${sound}2.ogg /home/pi/node/brave-bot/soundFiles/${sound}.ogg`, () => {
+            bot.sendMessage({
+              to: userID,
+              message: `${sound} done`
+            })
           })
-        }
-
-        bot.sendMessage({
-          to: userID,
-          message: 'its louder'
         })
       })
     }
