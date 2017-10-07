@@ -9,8 +9,11 @@
     "discord.io": "^2.5.2",
     "eslint": "^4.7.0",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "musicmetadata": "^2.0.5",
-    "pg": "^7.3.0"
+    "node-cmd": "^3.0.0",
+    "pg": "^7.3.0",
+    "sox": "^0.1.0"
   },
   "devDependencies": {
     "eslint-config-standard": "^10.2.1",
