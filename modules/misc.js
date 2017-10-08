@@ -54,6 +54,13 @@ module.exports = (bot) => {
         }, 1000)
       }, 1000)
     }
+
+    if (message.startsWith("$gahaha")) {
+      bot.sendMessage({
+        to: channelID,
+        message: `<:gahaha:295524754104778755>`
+      })
+    }
   })
 
   function doRoll (message) {
