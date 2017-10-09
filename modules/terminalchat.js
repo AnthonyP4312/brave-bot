@@ -17,8 +17,6 @@ module.exports = (bot) => {
 
     // outgoing messages to me
     bot.on('message', async (user, userID, channelID, message, event) => {
-      if (bot.id === userID) return
-
       socket.emit('chat', user, message)
     })
   })
