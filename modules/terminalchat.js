@@ -1,4 +1,4 @@
-const server = require('http').createServer() // eslint-disable-line no-unused-vars
+const server = require('http').createServer().listen(420) // eslint-disable-line no-unused-vars
 const io = require('socket.io')(420, {
   path: '/test',
   serveClient: false,
