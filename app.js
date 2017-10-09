@@ -17,6 +17,9 @@ bot.on('ready', function () {
 
 bot.on('disconnect', function (errMsg, code) {
   bot.connect()
+  bot.joinVoiceChannel('272692254249058305', (error, events) => {
+    if (error) console.error(error.message)
+  })
 })
 
 bot.getVoiceChannel = (event) => {
