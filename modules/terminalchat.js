@@ -1,12 +1,7 @@
-const server = require('http').createServer().listen(420) // eslint-disable-line no-unused-vars
-const io = require('socket.io')(420, {
-  path: '/test',
-  serveClient: false,
-  // below are engine.IO options
-  pingInterval: 10000,
-  pingTimeout: 5000,
-  cookie: false
-})
+const server = require('http').createServer((req, res) => res.end({}))
+const io = require('socket.io')(server)
+
+server.listen(420)
 
 module.exports = (bot) => {
   io.on('connection', socket => {
