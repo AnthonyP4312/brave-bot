@@ -32,5 +32,6 @@ require('./modules/pubg')(bot)
 require('./modules/soundboard')(bot)
 require('./modules/statistics')(bot)
 require('./modules/soundVolume')(bot)
+require('./modules/terminalchat')(bot)
 
 module.exports = bot
