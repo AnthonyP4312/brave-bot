@@ -61,6 +61,13 @@ module.exports = (bot) => {
         message: `<:gahaha:295524754104778755>`
       })
     }
+
+    if (message.startsWith("$bleh")) {
+      bot.sendMessage({
+        to: channelID,
+        message: `<:bleh:314246697775529985>`
+      })
+    }
   })
 
   function doRoll (message) {
