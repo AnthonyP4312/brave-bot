@@ -1,5 +1,6 @@
 const server = require('http').createServer((req, res) => res.end({}))
 const io = require('socket.io')(server)
+const moment = require('moment')
 
 server.listen(420)
 
@@ -21,7 +22,7 @@ module.exports = (bot) => {
         user = 'Ryza'
       }
 
-      socket.emit('chat', user, message)
+      socket.emit('chat', user, message, moment(new Date()).format('YYYY-MM-DD HH:mm:ss'))
     })
   })
 }
