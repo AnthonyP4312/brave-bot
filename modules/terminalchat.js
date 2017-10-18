@@ -22,7 +22,7 @@ module.exports = (bot) => {
         user = 'Ryza'
       }
 
-      socket.emit('chat', user, message, moment(new Date()).format('YYYY-MM-DD HH:mm:ss'))
+      socket.emit('chat', user, message, moment(new Date()).format('HH:mm:ss'))
     })
   })
 }
